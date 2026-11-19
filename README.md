@@ -8,7 +8,7 @@ The goal is not to reinvent ready-made libraries, but to understand **how** each
 
 | # | Topic | Folder | Status |
 |---|-------|--------|--------|
-| 1 | Lists (dynamic array and linked list) | [01-lists](01-lists/) | ⬜ |
+| 1 | Lists (dynamic array and linked list) | [01-lists](01-lists/) | 🟨 |
 | 2 | Stacks and queues | [02-stacks-and-queues](02-stacks-and-queues/) | ⬜ |
 | 3 | Hash tables | [03-hash-tables](03-hash-tables/) | 🟨 |
 | 4 | Trees (BST, balanced) | [04-trees](04-trees/) | ⬜ |

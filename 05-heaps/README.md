@@ -1,7 +1,7 @@
 # 05 - Heaps
 
-Fila de prioridade com heap binário em array. Perguntas-guia: por que construir um heap é O(n) e não O(n log n)? Onde heaps aparecem (Dijkstra, scheduling, top-k)?
+Priority queue with a binary heap stored in an array. Guiding questions: why is building a heap O(n) and not O(n log n)? Where do heaps show up (Dijkstra, scheduling, top-k)?
 
-- [ ] Heap binário (sift-up e sift-down)
+- [ ] Binary heap (sift-up and sift-down)
 - [ ] Heapsort
-- [ ] Fila de prioridade
+- [ ] Priority queue

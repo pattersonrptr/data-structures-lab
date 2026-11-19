@@ -1,30 +1,33 @@
 # Data Structures Lab
 
-Repositório de estudo de estruturas de dados: implementações do zero, testes e anotações sobre complexidade de cada operação.
+A study repository for data structures: implementations from scratch, tests, and notes on the complexity of each operation.
 
-O objetivo não é reinventar bibliotecas prontas, e sim entender **como** cada estrutura funciona por dentro, **por que** ela é mais rápida ou mais lenta para certas operações e **quando** escolher uma em vez de outra.
+The goal is not to reinvent ready-made libraries, but to understand **how** each structure works inside, **why** it is faster or slower for certain operations, and **when** to choose one over another.
 
-## Trilha de estudo
+## Study track
 
-| # | Tema | Pasta | Status |
-|---|------|-------|--------|
-| 1 | Listas (array dinâmico e lista encadeada) | [01-listas](01-listas/) | ⬜ |
-| 2 | Pilhas e filas | [02-pilhas-e-filas](02-pilhas-e-filas/) | ⬜ |
-| 3 | Tabelas hash | [03-tabelas-hash](03-tabelas-hash/) | ⬜ |
-| 4 | Árvores (BST, balanceadas) | [04-arvores](04-arvores/) | ⬜ |
-| 5 | Heaps e filas de prioridade | [05-heaps](05-heaps/) | ⬜ |
-| 6 | Grafos (BFS, DFS, caminhos mínimos) | [06-grafos](06-grafos/) | ⬜ |
+| # | Topic | Folder | Status |
+|---|-------|--------|--------|
+| 1 | Lists (dynamic array and linked list) | [01-lists](01-lists/) | ⬜ |
+| 2 | Stacks and queues | [02-stacks-and-queues](02-stacks-and-queues/) | ⬜ |
+| 3 | Hash tables | [03-hash-tables](03-hash-tables/) | 🟨 |
+| 4 | Trees (BST, balanced) | [04-trees](04-trees/) | ⬜ |
+| 5 | Heaps and priority queues | [05-heaps](05-heaps/) | ⬜ |
+| 6 | Graphs (BFS, DFS, shortest paths) | [06-graphs](06-graphs/) | ⬜ |
+| 7 | Binary search | [07-binary-search](07-binary-search/) | 🟨 |
 
-## Como cada tema é organizado
+⬜ not started · 🟨 in progress · ✅ done
 
-Dentro de cada pasta:
+## How each topic is organized
 
-- `README.md`: a ideia da estrutura, as operações principais e a complexidade (Big O) de cada uma, com o raciocínio por trás.
-- Código de implementação.
-- Testes cobrindo casos normais, casos de borda e operações vazias.
+Inside each folder:
 
-## Convenções
+- `README.md`: the idea behind the structure, its main operations, and the complexity (Big O) of each, with the reasoning behind it.
+- Implementation code.
+- Tests covering normal cases, edge cases, and empty operations.
 
-- Cada implementação deve ter ao menos um teste de comportamento e um de borda.
-- Complexidade se justifica com uma frase, não só com a notação.
-- Código comentado apenas onde a lógica não é óbvia.
+## Conventions
+
+- Each implementation must have at least one behavior test and one edge-case test.
+- Complexity is justified in one sentence, not just with notation.
+- Code is commented only where the logic is not obvious.

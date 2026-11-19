@@ -21,4 +21,4 @@ When the target is missing, the loop ends with `left > right`, and `left` is exa
 
 ## Files
 
-- [bynary-search.py](bynary-search.py): iterative and recursive versions, plus a small example in `__main__`.
+- [binary-search.py](binary-search.py): iterative and recursive versions, plus a small example in `__main__`.

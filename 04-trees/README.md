@@ -7,7 +7,7 @@ Binary search tree and balanced variants. Guiding questions: why does a BST dege
 - [x] Binary search tree: deletion (leaf, one child, two children)
 - [x] Traversals (in-order, pre-order, post-order, level-order), plus iterative pre-order and level-order grouped by level
 - [x] Height (depth-first and breadth-first)
-- [x] Interview problems: invert the tree, validate a BST, lowest common ancestor
+- [x] Interview problems: invert the tree, validate a BST, lowest common ancestor, k-th smallest value, balance check
 - [ ] AVL (rotations)
 - [ ] Red-Black
 
@@ -36,6 +36,8 @@ Below, `n` is the number of nodes, `h` the height and `w` the width of the wides
 | `invert()` | O(n) | O(h) | Swaps the children of every node once. |
 | `is_bst()` | O(n) | O(h) | Checks every node against a range; can stop early at the first invalid node. |
 | `lowest_common_ancestor(a, b)` | O(h) | O(1) | Walks down one path until the two values split. |
+| `kth_smallest(k)` | O(h + k) | O(h) | Iterative in-order: goes down to the smallest value, then visits only `k` nodes. |
+| `is_balanced()` | O(n) | O(h) | One bottom-up pass; each call returns its height, or -1 as soon as a subtree is unbalanced. |
 
 The space column does not count the returned list.
 
@@ -63,6 +65,10 @@ All traversals visit every node. They differ in which node comes next:
 ## Validating a BST
 
 Comparing each node only with its direct children is not enough: a value can be correct for its parent and still be on the wrong side of an older ancestor. `is_bst` passes a range down the tree. Going left narrows the maximum to the current value; going right narrows the minimum. Every node must fit the range inherited from all its ancestors.
+
+## Balance check
+
+A tree is balanced when, at every node, the heights of the left and right subtrees differ by at most 1. As with `is_bst`, checking only the root is not enough. Calling `height` at every node works but measures the same subtrees again for each ancestor, O(n²) on a degenerate tree. `is_balanced` does a single post-order pass instead: each call returns the height of its subtree, or -1 to report that it is unbalanced. AVL trees keep exactly this property after every insertion and deletion, using rotations.
 
 ## Edge cases handled
 

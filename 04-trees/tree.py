@@ -281,6 +281,47 @@ class Tree:
 
         return None
 
+    def kth_smallest(self, k):
+        # In-order with an explicit stack, stopping at the k-th visited node.
+        stack = []
+        current = self.root
+        count = 0
+
+        while stack or current is not None:
+            while current is not None:
+                stack.append(current)
+                current = current.left
+
+            node = stack.pop()
+            count += 1
+            if count == k:
+                return node.value
+
+            current = node.right
+
+        return None
+
+    def is_balanced(self):
+        return self._balanced_height(self.root) != -1
+
+    def _balanced_height(self, node):
+        # Returns the height of the subtree, or -1 if it is not balanced.
+        if node is None:
+            return 0
+
+        left = self._balanced_height(node.left)
+        if left == -1:
+            return -1
+
+        right = self._balanced_height(node.right)
+        if right == -1:
+            return -1
+
+        if abs(left - right) > 1:
+            return -1
+
+        return max(left, right) + 1
+
     def is_bst(self):
         return self._is_bst(self.root, float("-inf"), float("inf"))
 
@@ -595,6 +636,41 @@ def test_delete_all_values_one_by_one():
     assert tree.root is None
 
 
+def test_kth_smallest():
+    tree = build([5, 3, 8, 1])
+
+    assert [tree.kth_smallest(k) for k in [1, 2, 3, 4]] == [1, 3, 5, 8]
+    assert tree.kth_smallest(0) is None
+    assert tree.kth_smallest(5) is None
+    assert Tree().kth_smallest(1) is None
+
+
+def test_kth_smallest_matches_in_order():
+    for values in [DELETE_VALUES, [1, 2, 3, 4, 5], [5, 4, 3, 2, 1]]:
+        tree = build(values)
+        expected = tree.in_order()
+
+        for k in range(1, len(expected) + 1):
+            assert tree.kth_smallest(k) == expected[k - 1]
+
+
+def test_is_balanced():
+    cases = [
+        ([], True),
+        ([7], True),
+        ([1, 2], True),
+        ([5, 3, 8, 1], True),
+        ([50, 30, 70, 20, 40, 60, 80], True),
+        ([1, 2, 3], False),
+        ([1, 2, 3, 4, 5], False),
+        # Equal heights at the root, but 30 and 70 are unbalanced.
+        ([50, 30, 70, 20, 80, 10, 90], False),
+    ]
+
+    for values, expected in cases:
+        assert build(values).is_balanced() is expected
+
+
 def test_lowest_common_ancestor():
     tree = build([50, 30, 70, 20, 40, 60, 80])
     cases = [
@@ -714,6 +790,9 @@ if __name__ == "__main__":
         test_delete_missing_value_changes_nothing,
         test_delete_on_empty_tree,
         test_delete_all_values_one_by_one,
+        test_kth_smallest,
+        test_kth_smallest_matches_in_order,
+        test_is_balanced,
         test_lowest_common_ancestor,
         test_lowest_common_ancestor_on_empty_tree,
         test_is_bst_on_trees_built_with_insert,

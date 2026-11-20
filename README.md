@@ -11,7 +11,7 @@ The goal is not to reinvent ready-made libraries, but to understand **how** each
 | 1 | Lists (dynamic array and linked list) | [01-lists](01-lists/) | 🟨 |
 | 2 | Stacks and queues | [02-stacks-and-queues](02-stacks-and-queues/) | ⬜ |
 | 3 | Hash tables | [03-hash-tables](03-hash-tables/) | 🟨 |
-| 4 | Trees (BST, balanced) | [04-trees](04-trees/) | ⬜ |
+| 4 | Trees (BST, balanced) | [04-trees](04-trees/) | 🟨 |
 | 5 | Heaps and priority queues | [05-heaps](05-heaps/) | ⬜ |
 | 6 | Graphs (BFS, DFS, shortest paths) | [06-graphs](06-graphs/) | ⬜ |
 | 7 | Binary search | [07-binary-search](07-binary-search/) | 🟨 |

@@ -8,7 +8,7 @@ Dynamic array and linked list. Guiding questions: why is index access O(1) in an
 
 ## Singly linked list
 
-Implementation: [linked-list.py](linked-list.py). Each node holds a value and a pointer to the next node. The list keeps pointers to both the first and the last node, plus a size counter.
+Implementation: [linked_list.py](linked_list.py). Each node holds a value and a pointer to the next node. The list keeps pointers to both the first and the last node, plus a size counter.
 
 | Operation | Time | Why |
 |-----------|------|-----|

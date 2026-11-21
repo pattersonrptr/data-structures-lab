@@ -17,6 +17,12 @@ def _sort(nums, buffer, lo, hi):
     mid = (lo + hi) // 2
     _sort(nums, buffer, lo, mid)
     _sort(nums, buffer, mid, hi)
+
+    # Halves already in order (last of left <= first of right): nothing to merge.
+    # Makes already sorted input O(n): T(n) = 2T(n/2) + O(1).
+    if not nums[mid] < nums[mid - 1]:
+        return
+
     _merge(nums, buffer, lo, mid, hi)
 
 
@@ -48,6 +54,19 @@ class Item:
 
     def __lt__(self, other):
         return self.key < other.key
+
+
+class Counted:
+    """Counts every comparison, to check how much work the sort does."""
+
+    comparisons = 0
+
+    def __init__(self, value):
+        self.value = value
+
+    def __lt__(self, other):
+        Counted.comparisons += 1
+        return self.value < other.value
 
 
 def test_empty_list():
@@ -94,6 +113,14 @@ def test_is_stable():
     assert labels == ["Dan", "Ana", "Caio", "Bia", "Eva"]
 
 
+def test_sorted_input_skips_every_merge():
+    # Each of the n - 1 internal calls does exactly one check and no merge.
+    for n in (1, 2, 7, 100, 1000):
+        Counted.comparisons = 0
+        merge_sort([Counted(x) for x in range(n)])
+        assert Counted.comparisons == max(n - 1, 0)
+
+
 def test_matches_builtin_sorted_on_random_lists():
     for size in range(50):
         nums = [random.randint(-10, 10) for _ in range(size)]
@@ -111,6 +138,7 @@ if __name__ == "__main__":
         test_negative_numbers,
         test_returns_new_list_and_keeps_input_intact,
         test_is_stable,
+        test_sorted_input_skips_every_merge,
         test_matches_builtin_sorted_on_random_lists,
     ]
 

@@ -15,6 +15,7 @@ The goal is not to reinvent ready-made libraries, but to understand **how** each
 | 5 | Heaps and priority queues | [05-heaps](05-heaps/) | ⬜ |
 | 6 | Graphs (BFS, DFS, shortest paths) | [06-graphs](06-graphs/) | ⬜ |
 | 7 | Binary search | [07-binary-search](07-binary-search/) | 🟨 |
+| 8 | Sorting algorithms (merge sort, quick sort) | [08-sorting-algorithms](08-sorting-algorithms/) | 🟨 |
 
 ⬜ not started · 🟨 in progress · ✅ done
 

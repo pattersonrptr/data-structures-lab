@@ -144,3 +144,4 @@ if __name__ == "__main__":
 
     for test in tests:
         test()
+        print("ok:", test.__name__)
